@@ -17,10 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone_number',14)->unique();
+            $table->bigInteger('reward_points')->default(0);
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email_verification_token')->nullable();
+            $table->string('facebook_id',32)->nullable();
+            $table->string('google_id',32)->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
