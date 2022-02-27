@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('category_id')->default(0);
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            // $table->unsignedInteger('category_id')->default(0);
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->default(0);
             $table->string('name',128)->unique();
             $table->string('banner',128);
             $table->string('slug',128)->unique();
-            $table->timestamps();
+            $table->timestamps(); 
+            
         });
     }
 
