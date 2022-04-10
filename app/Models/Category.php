@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Category as ModelsCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -20,5 +21,12 @@ class Category extends Model
     } 
     public function products(){
         return $this->hasMany(Product::class);
+    }
+
+    protected static function booted()
+    {
+        static::created(function ($category) {
+            $category->slug=Str::slug($category->title);
+        });
     }
 }
