@@ -5,11 +5,15 @@
 
 
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">Contact</h4>
+            <h4 class="text-white">Category</h4>
             <ul class="list-unstyled">
-              <li><a href="" class="text-white">Follow on Twitter</a></li>
-              <li><a href="" class="text-white">Like on Facebook</a></li>
-              <li><a href="" class="text-white">Email me</a></li>
+              @foreach($categories as $category)
+
+              <li><a href="{{ $category->slug }}" class="text-white">{{ $category->name }}</a></li>
+
+              @endforeach
+
+
             </ul>
           </div>
 

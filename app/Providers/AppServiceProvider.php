@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $category=Category::select(['name','slug'])->get();
-       view::share('category',$category);
+        $categories=Category::select(['name','slug'])->get();
+       view::share('categories',$categories);
     }
 }
