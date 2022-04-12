@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('frontend.home');
+Route::get('/product/{slug?}', 'ProductController@showDetails')->name('product.details');

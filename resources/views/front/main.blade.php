@@ -26,18 +26,18 @@
                                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                                     alt="{{ $product->title }}">
                                 <div class="card-body">
-                                    <p class="card-text">{{ $product->title }}</p>
+                                    <p class="card-text" ><a href="{{ route('product.details' , $product->slug) }}">{{ $product->title }}</a></p>
+                                    
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
-                                            
                                         </div>
                                         <strong class="text-muted">BDT {{ $product->price }}</strong>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     @endforeach
 
                 </div>
