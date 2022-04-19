@@ -23,12 +23,12 @@
             <ul class="list-unstyled">
 
               @guest
-              <li><a href="" class="text-white">login</a></li>
-              <li><a href="" class="text-white">signup</a></li>
+              <li><a href="{{ route('login') }}" class="text-white">login</a></li>
+              <li><a href="{{ route('register') }}" class="text-white">signup</a></li>
               @endguest
 
               @auth
-              <li><a href="" class="text-white">logout</a></li>
+              <li><a href="{{ route('user.logout') }}" class="text-white">logout</a></li>
               @endauth
             
             </ul>

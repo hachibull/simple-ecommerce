@@ -20,4 +20,15 @@ Route::post('/cart-add', 'CartController@addToCart')->name('cart.add');
 Route::post('/cart-remove', 'CartController@removeFromCart')->name('cart.remove');
 Route::get('/checkout', 'CartController@checkout')->name('checkout');
 
+Route::get('login','AuthController@loginForm')->name('login');
+Route::post('login/process','AuthController@loginProcess')->name('login.Process');
+
+Route::get('register','AuthController@registerForm')->name('register');
+Route::post('register/process','AuthController@registerProcess')->name('register.Process');
+
+Route::post('activate/{token?}','AuthController@activate')->name('activate');
+Route::get('user-logout','AuthController@logout')->name('user.logout');
+
+Route::post('/oder', 'CartController@order')->name('order');
+
 
