@@ -26,7 +26,7 @@ Route::post('login/process','AuthController@loginProcess')->name('login.Process'
 Route::get('register','AuthController@registerForm')->name('register');
 Route::post('register/process','AuthController@registerProcess')->name('register.Process');
 
-Route::post('activate/{token?}','AuthController@activate')->name('activate');
+Route::get('activate/{token?}','AuthController@activate')->name('activate');
 Route::get('user-logout','AuthController@logout')->name('user.logout');
 
 Route::post('/oder', 'CartController@order')->name('order');

@@ -62,6 +62,7 @@
         </div>
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Billing address</h4>
+            @include('front.message')
             <form action="{{ route('order') }}" method="POST">
                 @csrf
 

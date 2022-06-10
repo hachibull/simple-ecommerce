@@ -36,15 +36,15 @@ class AuthController extends Controller
 
 
         if(auth()->attempt($credentials)){
-
-            $user=auth()->user();
-            if($user->email_varified_at == null){
+            if( auth()->user()->email_verification_token == null){
+                $this->setSuccess('user logged in');  
+                return redirect()->route('cart.show');
+            } else {
+                
                 $this->setError('account is not activated');
                 return redirect()->route('login');
             }
 
-          $this->setSuccess('user logged in');  
-          return redirect()->route('cart.show');
         }
 
         $this->setError('invalid email/pass');
@@ -71,7 +71,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        
         try {
             
             $user = User::create([
@@ -94,13 +94,15 @@ class AuthController extends Controller
             return redirect()->back();
         }
     }
-    public function activate($token = null)
+    public function activate(Request $token)
     {
         dd($token);
         if ($token == null) {
             return redirect()->route('/');
         }
+
         $user = User::where('email_verification_token', $token)->firstOrFail();
+      
         if ($user) {
             $user->update([
                 'email_verified_at' => Carbon::now(),
@@ -110,7 +112,7 @@ class AuthController extends Controller
             return redirect()->route('login');
         }
 
-        $this->setSuccess('account not found'); //session er message er helper jeta controller e likha ace
+        $this->setSuccess('account not found'); 
         return redirect()->route('login');
     }
     
