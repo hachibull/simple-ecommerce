@@ -96,13 +96,13 @@ class AuthController extends Controller
     }
     public function activate(Request $token)
     {
-        dd($token);
-        if ($token == null) {
+        //dd($token);
+        if ($token->token == null) {
             return redirect()->route('/');
         }
 
-        $user = User::where('email_verification_token', $token)->firstOrFail();
-      
+        $user = User::where('email_verification_token', $token->token)->first();
+      //dd($user);
         if ($user) {
             $user->update([
                 'email_verified_at' => Carbon::now(),

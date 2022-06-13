@@ -88,7 +88,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
           </div>
           <!-- /.col -->
         </div>
@@ -106,7 +106,7 @@
 
      
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="{{ route('login') }}" class="text-center">I've already an account</a>
       </p>
     </div>
     <!-- /.login-card-body -->

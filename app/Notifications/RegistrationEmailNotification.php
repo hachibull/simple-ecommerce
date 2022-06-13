@@ -51,7 +51,7 @@ class RegistrationEmailNotification extends Notification //implements ShouldQueu
         return (new MailMessage)
                     ->line('welcome,'.$this->user->name .' to our ecommerce system.')
                     ->line('plz click the following link to activate your account.')
-                    ->action('click here', url('activate'.$this->user->email_verification_token))
+                    ->action('click here', url('activate?token='. $this->user->email_verification_token))
                     ->line('Thank you for using our application!');
     }
 
